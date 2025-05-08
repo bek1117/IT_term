@@ -1,4 +1,4 @@
-const Category = require("../models/category");
+const Category = require("../schemas/category");
 const error_handler = require("../utils/send.error.response");
 const validate = require("../validation/category.validation");
 

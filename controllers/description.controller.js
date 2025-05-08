@@ -1,4 +1,4 @@
-const Description = require("../models/description");
+const Description = require("../schemas/description");
 const error_handler = require("../utils/send.error.response");
 const validate = require("../validation/description.validation");
 

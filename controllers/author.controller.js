@@ -2,6 +2,7 @@ const Author = require("../schemas/author");
 const mongoose = require("mongoose");
 const error_handler = require("../utils/send.error.response");
 const { authorValidation } = require("../validation/author.validation");
+const bcrypt = require('bcrypt');
 
 const getAllAuthors = async (req, res) => {
   try {
@@ -34,8 +35,8 @@ const createAuthor = async (req, res) => {
     if (error) {
       return error_handler(error, res);
     }
-    const newAuthor = new Author(value);
-    await newAuthor.save();
+    const hashedPassword = bcrypt.hashSync(value.password, 10);
+    const newAuthor = new Author.create({ ...value, password: hashedPassword });
     res
       .status(201)
       .send({ message: "Author created successfully", data: newAuthor });
