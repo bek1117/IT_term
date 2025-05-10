@@ -7,8 +7,10 @@ const {
   updateDictById,
   deleteDictById,
 } = require("../controllers/dict.controller");
+const authorExpertGuard = require("../middlewares/guards/author-expert.guard");
+const authorJwtGuard = require("../middlewares/guards/author-jwt.guard");
 
-router.post("/", addDict);
+router.post("/", authorJwtGuard, authorExpertGuard, addDict);
 router.get("/", getAllDict);
 router.get("/letter/:letter", getDictByLetter);
 router.get("/:id", getDictById);

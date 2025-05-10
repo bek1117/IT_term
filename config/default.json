@@ -1,4 +1,8 @@
 {
     "PORT" : 5000,
-    "uri" : "mongodb+srv://ztm007uzb:712285345@cluster1.vnxjawk.mongodb.net/ITterm?retryWrites=true&w=majority&appName=Cluster1"
+    "uri" : "mongodb+srv://ztm007uzb:712285345@cluster1.vnxjawk.mongodb.net/ITterm?retryWrites=true&w=majority&appName=Cluster1",
+    "JWTkey" : "7f9430467c17aa7bbf07a820b703fa2ad9dfb2aa1f4c80b08c7ee17c6073e9f0a6c6aad9cdef38a238788901404ef7bdde29c17a27377bb9482dd87cde032c78",
+    "JWTadmin" : "7e8caec6a89c8f49d5e2f5e9e280a9dfad54bee92a33c45012dd788ea484aed78689b48e3c134683e1a12cdb485ec48ffd9e1bc057dec1bb29a23da41a9ae5c7",
+    "JWTuser" : "941c1990ba8f58b5aec95abc3b113e803483772a6877dbba1cc10aefa870f652505841c0b6311ca872c1a85478e0167b37b15f7be71bed71cf00254ac0bdc3f1",
+    "JWTexp" : 3600
 }

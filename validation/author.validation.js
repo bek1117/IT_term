@@ -8,7 +8,7 @@ exports.authorValidation = (body) => {
   const scheme = joi.object({
     first_name: joi.string().trim().required(),
     last_name: joi.string().trim().required(),
-    full_name: joi.string().trim().required().default(authorFullName),
+    full_name: joi.string().trim().default(authorFullName),
     username: joi.string().trim().required(),
     email: joi.string().email().trim().required().lowercase(),
     password: joi.string().pattern(new RegExp("^[a-zA-Z0-9]{3,30}$")),
