@@ -7,6 +7,7 @@ const adminCreateSchema = Joi.object({
   password: Joi.string().min(6).required(),
   is_active: Joi.boolean().optional(),
   is_creator: Joi.boolean().optional(),
+  activation_link : Joi.string().required()
 });
 
 const adminUpdateSchema = Joi.object({

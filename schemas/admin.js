@@ -20,11 +20,15 @@ const AdminScheme = new Schema(
     },
     is_active: {
       type: Boolean,
-      default: true,
+      default: false,
     },
     is_creator: {
       type: Boolean,
       default: false,
+    },
+    activation_link: {
+      type: String,
+      required: true,
     },
   },
   {

@@ -18,7 +18,7 @@ exports.authorValidation = (body) => {
     position: joi.string().trim().required(),
     photo: joi.string().uri().trim().allow(null, ""),
     is_expert: joi.boolean().required(),
-    is_active: joi.boolean().required(),
+    is_active: joi.boolean(),
     gender : joi.string().trim().required().lowercase().valid("male", "female")
   });
   return scheme.validate(body, {abortEarly : false});

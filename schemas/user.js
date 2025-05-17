@@ -33,6 +33,10 @@ const UserSchema = new Schema(
       type: Boolean,
       default: false,
     },
+    activation_link: {
+      type: String,
+      required: true,
+    },
   },
   {
     timestamps: true,

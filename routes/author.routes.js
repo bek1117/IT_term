@@ -5,16 +5,20 @@ const {
   updateAuthorById,
   getAuthorById,
   loginAuthor,
+  AuthorLogout,
+  AuthorRefreshToken,
+  ActivateUser,
 } = require("../controllers/author.controller");
-const authorJwtGuard = require("../middlewares/guards/author-jwt.guard");
-const authorSelfGuard = require("../middlewares/guards/author-self.guard");
 
 const router = require("express").Router();
 
-router.get("/", authorJwtGuard, getAllAuthors);
+router.get("/", getAllAuthors);
 router.post("/", createAuthor);
 router.post("/login", loginAuthor);
-router.get("/:id", authorJwtGuard, authorSelfGuard, getAuthorById);
+router.get("/logout", AuthorLogout);
+router.get("/refresh", AuthorRefreshToken);
+router.get("/activate/:id", ActivateUser);
+router.get("/:id", getAuthorById);
 router.patch("/:id", updateAuthorById);
 router.delete("/:id", deleteAuthorById);
 

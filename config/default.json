@@ -1,8 +1,30 @@
 {
-    "PORT" : 5000,
-    "uri" : "mongodb+srv://ztm007uzb:712285345@cluster1.vnxjawk.mongodb.net/ITterm?retryWrites=true&w=majority&appName=Cluster1",
-    "JWTkey" : "7f9430467c17aa7bbf07a820b703fa2ad9dfb2aa1f4c80b08c7ee17c6073e9f0a6c6aad9cdef38a238788901404ef7bdde29c17a27377bb9482dd87cde032c78",
-    "JWTadmin" : "7e8caec6a89c8f49d5e2f5e9e280a9dfad54bee92a33c45012dd788ea484aed78689b48e3c134683e1a12cdb485ec48ffd9e1bc057dec1bb29a23da41a9ae5c7",
-    "JWTuser" : "941c1990ba8f58b5aec95abc3b113e803483772a6877dbba1cc10aefa870f652505841c0b6311ca872c1a85478e0167b37b15f7be71bed71cf00254ac0bdc3f1",
-    "JWTexp" : 3600
+  "PORT": 5000,
+  "uri": "mongodb+srv://ztm007uzb:712285345@cluster1.vnxjawk.mongodb.net/ITterm?retryWrites=true&w=majority&appName=Cluster1",
+  "author": {
+    "access_time": 3600,
+    "refresh_time": 54000,
+    "refresh": "941c1990ba8f58b5aec95abc3b113e803483772a6877dbba1cc10aefa870f652505841c0b6311ca872c1a85478e0167b37b15f7be71bed71cf00254ac0bdc3f1",
+    "access": "7e8caec6a89c8f49d5e2f5e9e280a9dfad54bee92a33c45012dd788ea484aed78689b48e3c134683e1a12cdb485ec48ffd9e1bc057dec1bb29a23da41a9ae5c7"
+  },
+  "admin": {
+    "access": "3ad3ee24a9c42ad281a956826581491c5960ac961e465f48b323ea942795a04915beaf7f390b0789ad552e05ffafa9c08ed8827b3ed74c8fa00d002e25306dec",
+    "refresh": "c5dd9aa38a0341f981d629ef695c3abc68cf07d37ba902b92e9701f9d0446b3f6c9f3767492fc03dff3efac71071fc94d20265d4a97dba726b9acb1d6f841626",
+    "access_time": 3600,
+    "refresh_time": 54000
+  },
+  "user": {
+    "access": "e569d251c10320ee9a956a0c3246c378899da43f341c6f7f1ef7ac9095784d773949ab31f9337b00152d5a6ff87982338244dacda8b77010e88afe3161c89567",
+    "refresh": "5e6d329d4d94af1b3b49c56863d3605cc37da76035b1ec3e3f60a7cde56b60476684678cd337358cc080f7276bdf41a3c59dc12cb0b8f5498375c3679ff6fec1",
+    "access_time": 3600,
+    "refresh_time": 54000
+  },
+  "cookie_refresh_time": 1296000000,
+  "smtp_password" : "vhaznxpugxkmdkmi",
+  "smtp_host" : "smtp.gmail.com",
+  "smtp_port" : 587,
+  "smpt_use" : "ztm007uzb@gmail.com",
+  "api_url": "http://localhost:5000",
+  "debug" : true,
+  "secret_key": "Bumas"
 }
