@@ -1,27 +1,34 @@
 const { Schema, model } = require("mongoose");
 
-
-module.exports = model(new Schema({
+const questionAnswerSchema = new Schema(
+  {
     question: {
-        type: String,
-        required : true
+      type: String,
+      required: true,
     },
     answer: {
-        type: String,
-        required : true
+      type: String,
+      required: true,
     },
     isChecked: {
-        type: Boolean,
-        default: false,
+      type: Boolean,
+      default: false,
     },
     user_id: {
-        type: Schema.Types.ObjectId,
-        ref: "User",
-        required: true,
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
     },
-    expert_id : {
-        type: Schema.Types.ObjectId,
-        ref: "Author",
-        default: null,
+    expert_id: {
+      type: Schema.Types.ObjectId,
+      ref: "Author",
+      default: null,
     },
-}), "Question-Answer")
+  },
+  {
+      timestamps: true,
+      versionKey : false
+  }
+);
+
+module.exports = model("QuestionAnswer", questionAnswerSchema);
