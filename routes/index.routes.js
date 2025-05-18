@@ -7,6 +7,7 @@ const TopicRoute = require("./topic.routes");
 const TagRoute = require("./tag.routes");
 const AdminRoutes = require("./admin.routes");
 const UserRoutes = require("./user.routes");
+const QARoutes = require("./qa.routes");
 const index = require("express").Router();
 
 index.use("/dict", dictRoutes);
@@ -18,5 +19,6 @@ index.use("/topic", TopicRoute);
 index.use("/tag", TagRoute);
 index.use("/admin", AdminRoutes);
 index.use("/user", UserRoutes);
+index.use("/qa", QARoutes);
 
 module.exports = index;
