@@ -2,25 +2,42 @@ const express = require("express");
 const config = require("config");
 const mongoose = require("mongoose");
 const Routes = require("./routes/index.routes");
-const cookieParser = require("cookie-parser");
 const errorHandlingMiddleware = require("./middlewares/errors/error-handling.middleware");
 const requestErrorLogger = require("./middlewares/loggers/requestError.logger");
 const requestLogger = require("./middlewares/loggers/request.logger");
+const exHandlebars = require("express-handlebars");
+const ViewRouter = require("./routes/views.routes");
 
-require("dotenv").config({ path: `.env.${process.env.NODE_ENV}` });
+const {
+  jsonParser,
+  customCookieParser
+} = require("./middlewares/parsers/cookie-parser");
+
 
 const PORT = config.get("PORT") || 3030;
 
 const app = express();
 
-app.use(express.json());
-app.use(cookieParser());
+app.use(jsonParser);
+app.use(customCookieParser);
 
-app.use(requestLogger);
+const handlebars = exHandlebars.create({
+  defaultLayout: "main",
+  extname: ".hbs",
+});
 
+app.engine("hbs", handlebars.engine);
+app.set("view engine", "hbs");
+app.set("views", "./views");
+
+app.use(express.static("views"));
+
+// app.use(requestLogger);
+
+app.use("/", ViewRouter);
 app.use("/api", Routes);
 
-app.use(requestErrorLogger);
+// app.use(requestErrorLogger);
 
 app.use(errorHandlingMiddleware);
 

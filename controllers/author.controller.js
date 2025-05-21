@@ -5,11 +5,11 @@ const { authorValidation } = require("../validation/author.validation");
 const bcrypt = require("bcrypt");
 const config = require("config");
 const Refresh = require("../schemas/refresh");
-const {AuthorJWTService} = require("../services/jwt.service");
+const { Author : AuthorJWTService } = require("../services/jwt.service");
 const uuid = require("uuid");
 const mailService = require("../services/mail.service");
 
-const getAllAuthors = async (req, res) => {
+const getAllAuthors = async (_, res) => {
   try {
     const authors = await Author.find();
     if (!authors.length) {
@@ -53,7 +53,7 @@ const createAuthor = async (req, res) => {
     await mailService.sendMail(newAuthor.email, link);
     res.status(201).send({
       message:
-        "Author created successfully, Please check your email to activate your account"
+        "Author created successfully, Please check your email to activate your account",
     });
   } catch (error) {
     error_handler(error, res);
@@ -118,7 +118,8 @@ const loginAuthor = async (req, res) => {
       isExpert: author.is_expert,
     };
 
-    const { acces_token, refresh_token } = AuthorJWTService.generate_tokens(payload);
+    const { acces_token, refresh_token } =
+      AuthorJWTService.generate_tokens(payload);
 
     await Refresh.create({
       token: refresh_token,
@@ -195,9 +196,7 @@ const AuthorRefreshToken = async (req, res) => {
       { token: refresh_token },
       {
         token: new_refresh_token,
-        expiresAt: new Date(
-          Date.now() + config.get("author.refresh_time")
-        ),
+        expiresAt: new Date(Date.now() + config.get("author.refresh_time")),
       }
     );
 

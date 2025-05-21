@@ -13,7 +13,6 @@ const consoleTransport = new winston.transports.Console({
 const dbTransport = new winston.transports.MongoDB({
   db: config.get("uri"),
   level: "error",
-  options: { useUnifiedTopology: true },
   collection: "errorLogs",
   format: winston.format.json(),
 });

@@ -12,7 +12,6 @@ const consoleTransport = new winston.transports.Console({
 
 const mongoTransport = new winston.transports.MongoDB({
   db: config.get("uri"),
-  options: { useUnifiedTopology: true },
   collection: "ApiLogs",
   level: "info",
   format: winston.format.combine(

@@ -5,7 +5,7 @@ const validate = require("../validation/topic.validation");
 
 const getAllTopics = async (req, res) => {
   try {
-    const topics = await Topic.find();
+    const topics = await Topic.find().select("-__v");
     res.status(200).send({ data: topics });
   } catch (error) {
     error_handler(error, res);
